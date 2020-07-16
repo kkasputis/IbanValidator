@@ -21,9 +21,11 @@ public class IbanService {
 
 	public boolean validateIban(String iban) {
 		char[] charIban = iban.replace(" ", "").toCharArray();
-		if ((charIban.length > 34) || (charIban.length < 5)) {
+		if (!checkIbanLenght(String.valueOf(charIban[0]) + String.valueOf(charIban[1]), charIban.length)) {
 			return false;
 		}
+		System.out.println(String.valueOf(charIban[0]) + String.valueOf(charIban[1]));
+		System.out.println(checkIbanLenght(String.valueOf(charIban[0]) + String.valueOf(charIban[1]), charIban.length));
 		String finalNumber = "";
 		charIban = moveChars(charIban);
 		for (int i = 0; i < charIban.length; i++) {
@@ -102,5 +104,295 @@ public class IbanService {
 			rearanged[x - 4] = iban[x];
 		}
 		return rearanged;
+	}
+	boolean checkIbanLenght(String country, int lenght) {
+		if ((country.contentEquals("AL")) && (lenght == 28)) {
+			return true;
+		}
+		if ((country.contentEquals("DZ")) && (lenght == 24)) {
+			return true;
+		}
+		if ((country.contentEquals("AD")) && (lenght == 24)) {
+			return true;
+		}
+		if ((country.contentEquals("AT")) && (lenght == 20)) {
+			return true;
+		}
+		if ((country.contentEquals("AZ")) && (lenght == 28)) {
+			return true;
+		}
+		if ((country.contentEquals("BH")) && (lenght == 22)) {
+			return true;
+		}
+		if ((country.contentEquals("BY")) && (lenght == 28)) {
+			return true;
+		}
+		if ((country.contentEquals("BE")) && (lenght == 16)) {
+			return true;
+		}
+		if ((country.contentEquals("BJ")) && (lenght == 28)) {
+			return true;
+		}
+		if ((country.contentEquals("BA")) && (lenght == 20)) {
+			return true;
+		}
+		if ((country.contentEquals("BR")) && (lenght == 29)) {
+			return true;
+		}
+		if ((country.contentEquals("VG")) && (lenght == 24)) {
+			return true;
+		}
+		if ((country.contentEquals("BG")) && (lenght == 22)) {
+			return true;
+		}
+		if ((country.contentEquals("BF")) && (lenght == 27)) {
+			return true;
+		}
+		if ((country.contentEquals("BI")) && (lenght == 16)) {
+			return true;
+		}
+		if ((country.contentEquals("CM")) && (lenght == 27)) {
+			return true;
+		}
+		if ((country.contentEquals("CV")) && (lenght == 25)) {
+			return true;
+		}
+		if ((country.contentEquals("FR")) && (lenght == 27)) {
+			return true;
+		}
+		if ((country.contentEquals("CG")) && (lenght == 27)) {
+			return true;
+		}
+		if ((country.contentEquals("CR")) && (lenght == 21)) {
+			return true;
+		}
+		if ((country.contentEquals("HR")) && (lenght == 21)) {
+			return true;
+		}
+		if ((country.contentEquals("CY")) && (lenght == 28)) {
+			return true;
+		}
+		if ((country.contentEquals("CZ")) && (lenght == 24)) {
+			return true;
+		}
+		if ((country.contentEquals("DK")) && (lenght == 18)) {
+			return true;
+		}
+		if ((country.contentEquals("DO")) && (lenght == 28)) {
+			return true;
+		}
+		if ((country.contentEquals("EG")) && (lenght == 27)) {
+			return true;
+		}
+		if ((country.contentEquals("EE")) && (lenght == 20)) {
+			return true;
+		}
+		if ((country.contentEquals("FO")) && (lenght == 18)) {
+			return true;
+		}
+		if ((country.contentEquals("FI")) && (lenght == 18)) {
+			return true;
+		}
+		if ((country.contentEquals("FR")) && (lenght == 27)) {
+			return true;
+		}
+		if ((country.contentEquals("GA")) && (lenght == 27)) {
+			return true;
+		}
+		if ((country.contentEquals("GE")) && (lenght == 22)) {
+			return true;
+		}
+		if ((country.contentEquals("DE")) && (lenght == 22)) {
+			return true;
+		}
+		if ((country.contentEquals("GI")) && (lenght == 23)) {
+			return true;
+		}
+		if ((country.contentEquals("GR")) && (lenght == 27)) {
+			return true;
+		}
+		if ((country.contentEquals("GL")) && (lenght == 18)) {
+			return true;
+		}
+		if ((country.contentEquals("GT")) && (lenght == 28)) {
+			return true;
+		}
+		if ((country.contentEquals("GG")) && (lenght == 22)) {
+			return true;
+		}
+		if ((country.contentEquals("HU")) && (lenght == 28)) {
+			return true;
+		}
+		if ((country.contentEquals("IS")) && (lenght == 26)) {
+			return true;
+		}
+		if ((country.contentEquals("IR")) && (lenght == 26)) {
+			return true;
+		}
+		if ((country.contentEquals("IQ")) && (lenght == 23)) {
+			return true;
+		}
+		if ((country.contentEquals("IE")) && (lenght == 22)) {
+			return true;
+		}
+		if ((country.contentEquals("IM")) && (lenght == 22)) {
+			return true;
+		}
+		if ((country.contentEquals("IL")) && (lenght == 23)) {
+			return true;
+		}
+		if ((country.contentEquals("IT")) && (lenght == 27)) {
+			return true;
+		}
+		if ((country.contentEquals("CI")) && (lenght == 28)) {
+			return true;
+		}
+		if ((country.contentEquals("JE")) && (lenght == 22)) {
+			return true;
+		}
+		if ((country.contentEquals("JO")) && (lenght == 30)) {
+			return true;
+		}
+		if ((country.contentEquals("KZ")) && (lenght == 20)) {
+			return true;
+		}
+		if ((country.contentEquals("XK")) && (lenght == 20)) {
+			return true;
+		}
+		if ((country.contentEquals("KW")) && (lenght == 30)) {
+			return true;
+		}
+		if ((country.contentEquals("LV")) && (lenght == 21)) {
+			return true;
+		}
+		if ((country.contentEquals("LB")) && (lenght == 28)) {
+			return true;
+		}
+		if ((country.contentEquals("LI")) && (lenght == 21)) {
+			return true;
+		}
+		if ((country.contentEquals("LT")) && (lenght == 20)) {
+			return true;
+		}
+		if ((country.contentEquals("LU")) && (lenght == 20)) {
+			return true;
+		}
+		if ((country.contentEquals("MK")) && (lenght == 19)) {
+			return true;
+		}
+		if ((country.contentEquals("MG")) && (lenght == 27)) {
+			return true;
+		}
+		if ((country.contentEquals("ML")) && (lenght == 28)) {
+			return true;
+		}
+		if ((country.contentEquals("MT")) && (lenght == 31)) {
+			return true;
+		}
+		if ((country.contentEquals("MR")) && (lenght == 27)) {
+			return true;
+		}
+		if ((country.contentEquals("FR")) && (lenght == 27)) {
+			return true;
+		}
+		if ((country.contentEquals("MU")) && (lenght == 30)) {
+			return true;
+		}
+		if ((country.contentEquals("MD")) && (lenght == 24)) {
+			return true;
+		}
+		if ((country.contentEquals("MC")) && (lenght == 27)) {
+			return true;
+		}
+		if ((country.contentEquals("ME")) && (lenght == 22)) {
+			return true;
+		}
+		if ((country.contentEquals("MZ")) && (lenght == 25)) {
+			return true;
+		}
+		if ((country.contentEquals("NL")) && (lenght == 18)) {
+			return true;
+		}
+		if ((country.contentEquals("NO")) && (lenght == 15)) {
+			return true;
+		}
+		if ((country.contentEquals("PK")) && (lenght == 24)) {
+			return true;
+		}
+		if ((country.contentEquals("PS")) && (lenght == 29)) {
+			return true;
+		}
+		if ((country.contentEquals("PL")) && (lenght == 28)) {
+			return true;
+		}
+		if ((country.contentEquals("PT")) && (lenght == 25)) {
+			return true;
+		}
+		if ((country.contentEquals("QA")) && (lenght == 29)) {
+			return true;
+		}
+		if ((country.contentEquals("RO")) && (lenght == 24)) {
+			return true;
+		}
+		if ((country.contentEquals("LC")) && (lenght == 32)) {
+			return true;
+		}
+		if ((country.contentEquals("SM")) && (lenght == 27)) {
+			return true;
+		}
+		if ((country.contentEquals("ST")) && (lenght == 25)) {
+			return true;
+		}
+		if ((country.contentEquals("SA")) && (lenght == 24)) {
+			return true;
+		}
+		if ((country.contentEquals("SN")) && (lenght == 28)) {
+			return true;
+		}
+		if ((country.contentEquals("RS")) && (lenght == 22)) {
+			return true;
+		}
+		if ((country.contentEquals("SC")) && (lenght == 31)) {
+			return true;
+		}
+		if ((country.contentEquals("SK")) && (lenght == 24)) {
+			return true;
+		}
+		if ((country.contentEquals("SI")) && (lenght == 19)) {
+			return true;
+		}
+		if ((country.contentEquals("ES")) && (lenght == 24)) {
+			return true;
+		}
+		if ((country.contentEquals("ES")) && (lenght == 24)) {
+			return true;
+		}
+		if ((country.contentEquals("CH")) && (lenght == 21)) {
+			return true;
+		}
+		if ((country.contentEquals("TL")) && (lenght == 23)) {
+			return true;
+		}
+		if ((country.contentEquals("TN")) && (lenght == 24)) {
+			return true;
+		}
+		if ((country.contentEquals("TR")) && (lenght == 26)) {
+			return true;
+		}
+		if ((country.contentEquals("UA")) && (lenght == 29)) {
+			return true;
+		}
+		if ((country.contentEquals("AE")) && (lenght == 23)) {
+			return true;
+		}
+		if ((country.contentEquals("GB")) && (lenght == 22)) {
+			return true;
+		}
+		if ((country.contentEquals("VA")) && (lenght == 22)) {
+			return true;
+		}
+		else {
+		return false;
+		}
 	}
 }
