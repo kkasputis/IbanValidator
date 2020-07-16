@@ -24,8 +24,7 @@ public class IbanService {
 		if (!checkIbanLenght(String.valueOf(charIban[0]) + String.valueOf(charIban[1]), charIban.length)) {
 			return false;
 		}
-		System.out.println(String.valueOf(charIban[0]) + String.valueOf(charIban[1]));
-		System.out.println(checkIbanLenght(String.valueOf(charIban[0]) + String.valueOf(charIban[1]), charIban.length));
+
 		String finalNumber = "";
 		charIban = moveChars(charIban);
 		for (int i = 0; i < charIban.length; i++) {
