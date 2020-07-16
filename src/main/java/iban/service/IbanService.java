@@ -49,8 +49,8 @@ public class IbanService {
 			list.add(s.nextLine());
 		}
 		s.close();
-		List<String> validatedList = vadilateFromList(list);
-		System.out.println(validatedList);
+		//Žinau, kad daug paprasčiau būtų nenaudoti REST'o
+		List<String> validatedList = vadilateFromRest(list);
 		FileWriter writer = new FileWriter(file.substring(0, file.lastIndexOf(".") + 1) + "out.txt");
 		for (String iban : validatedList) {
 			writer.write(iban + System.lineSeparator());
@@ -58,7 +58,16 @@ public class IbanService {
 		writer.close();
 	}
 
-	public List<String> vadilateFromList(List<String> list) throws IOException {
+	public List<String> vadilateList(List<String> list) {
+		List<String> verifiedIbanList = new ArrayList<String>();
+		for (String iban : list) {
+			verifiedIbanList.add(iban + ";" + validateIban(iban));
+		}
+		return verifiedIbanList;
+	}
+	
+	
+	public List<String> vadilateFromRest(List<String> list) throws IOException {
 		String jsonas = new JSONArray(list).toString();
 		URL url = new URL("http://localhost:8080/varyfyibanlist");
 		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -84,7 +93,6 @@ public class IbanService {
 		connection.disconnect();
 		return responseList;
 	}
-
 	char[] moveChars(char[] iban) {
 		char[] rearanged = new char[iban.length];
 		for (int x = 0; x < 4; x++) {

@@ -29,7 +29,6 @@ public class MainController {
 	public String uploadIbanFile(@RequestBody MultipartFile ibanFile, Model model, HttpServletRequest request)
 			throws IOException {
 		String rootDirectory = request.getSession().getServletContext().getRealPath("/");
-		System.out.println(ibanFile.getOriginalFilename());
 		String fileName = ibanFile.getOriginalFilename().substring(0,
 				ibanFile.getOriginalFilename().lastIndexOf(".") + 1) + "out.txt";
 		File directory = new File(rootDirectory + "\\ibanFiles");
@@ -37,7 +36,6 @@ public class MainController {
 			directory.mkdir();
 
 		}
-		System.out.println(directory);
 		if (ibanFile != null && !ibanFile.isEmpty()) {
 			try {
 
