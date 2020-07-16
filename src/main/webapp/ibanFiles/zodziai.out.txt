@@ -1,0 +1,9 @@
+pirmas;false
+antrass;false
+zoodis;false
+daaaug;false
+laaabai;false
+mazai;false
+viena;false
+dvii;false
+tryyys;false

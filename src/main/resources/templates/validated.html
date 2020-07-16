@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<title>Iban validatorius</title>
+</head>
+<body>
+
+ <th:block th:include="/index"></th:block>
+ <div style="width:80%; margin:auto;">
+ <fieldset>
+<legend>Parsisiųsti failą</legend>
+<div style="display: flex; flex-direction: column;">Visi faile buvę IBAN numeriai patikrinti ir su rezultatais surašyti į naują failą
+ <a style="width: 250px; text-decoration: none; margin: auto;"class="custombuttom" th:href="@{'/ibanFiles/' + ${filename}}" download>Parsisiųsti validuotą failą</a>
+ </div>
+ </fieldset>
+ </div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<title>IBAN validatorius</title>
+</head>
+<body>
+<div style="margin-top:25px; font-size:xxx-large; margin-bottom: 25px;">IBAN validatorius</div>
+
+<div style="display: flex; flex-direction: column; width: 80%; margin: auto;">
+		<fieldset>
+			<legend>Tikrinti viena IBAN numerį</legend>
+<input type="text" id="iban" class="ibannumber">
+
+<button onClick="checkIban()" class="custombuttom">Tikrinti IBAN</button>
+<div>
+<span id="result"> </span>
+</div>
+</fieldset>
+</div>
+
+<div style="display: flex; flex-direction: column; width: 80%; margin: auto;">
+	<form method="POST" th:action="@{/checkibanfile}"
+		enctype="multipart/form-data">
+		<fieldset>
+			<legend>Tikrinti IBAN iš tekstinio failo</legend>
+			<input type='file' name='ibanFile' id='ibanFile' accept=".txt" required />
+			<button type="submit" name="submit" value="value" class="custombuttom">Tikrinti</button>
+		</fieldset>
+	</form>
+</div>
+</body>
+<script>
+function checkIban() {
+	if (document.getElementById("iban").value.length > 5) {
+        $.ajax({ 
+            type : "GET",
+            url : "/checksingleiban?iban=" + document.getElementById("iban").value,
+       
+            success: function(data){
+       			if(data != 0) {
+
+            	 if (data == 'true') { document.getElementById("result").innerHTML = 'Sąskaitos numeris teisingas';
+            	 document.getElementById("result").style.color = "green";}
+            	 else  {  
+            		 document.getElementById("result").innerHTML = 'Sąskaitos numeris neteisingas'; 
+            		 document.getElementById("result").style.color = "red";}
+       			}
+       			else { document.getElementById("result").innerHTML = 'Įvyko klaida.'; 
+            		 document.getElementById("result").style.color = "red";}
+            }
+        
+        });
+	}
+else { document.getElementById("result").innerHTML = 'Įveskite sąskaitos numerį.'; 
+            		 document.getElementById("result").style.color = "red"; }
+	}
+</script>
+<style>
+body {
+text-align: center;
+display: flex;
+flex-direction: column;}
+.custombuttom {
+	margin: 15px;
+	
+	background-color: #999;
+	color: white;
+	font-size: 16px;
+	padding: 16px 30px;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+	text-align: center;
+}
+.custombuttom:hover {
+	background-color: black;
+	color: white;
+	background: #666;
+}
+input[type=text], input[type=file]
+	{
+	width: 100%;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	font-size: 16px;
+	background-color: white;
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	padding: 12px 20px 12px 0px;
+	min-width:300px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	-webkit-transition: width 0.4s ease-in-out;
+	transition: width 0.4s ease-in-out;
+}
+</style>
+</html>
